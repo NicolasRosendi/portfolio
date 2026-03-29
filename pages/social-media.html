@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Media Hardware · Agustín Lanella</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/projects.css">
+</head>
+<body>
+
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+<div id="lightbox" role="dialog" aria-modal="true">
+  <button class="lightbox-close" aria-label="Cerrar">✕</button>
+  <img src="" alt="Vista ampliada">
+</div>
+<div id="page-loader">
+  <div class="loader-name">SOCIAL</div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-count" id="loader-count">0%</div>
+</div>
+
+<nav id="nav">
+  <a href="../index.html" class="nav-logo">A.L.</a>
+  <ul class="nav-links">
+    <li><a href="../index.html#projects" class="nav-link active">Proyectos</a></li>
+    <li><a href="../index.html#about" class="nav-link">Sobre mí</a></li>
+    <li><a href="servicios.html" class="nav-link">Servicios</a></li>
+    <li><a href="https://www.behance.net/aguatinlanella" class="nav-link" target="_blank">Behance</a></li>
+  </ul>
+  <a href="contacto.html" class="nav-cta">Contacto</a>
+  <button class="nav-hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile-overlay">
+  <a href="../index.html#projects" class="nav-link">Proyectos</a>
+  <a href="contacto.html" class="nav-link">Contacto</a>
+</div>
+
+<!-- HERO -->
+<section class="proj-hero">
+  <div class="proj-hero-bg">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/de9368205136643.66b53c4867864.jpg"
+         alt="Social Media Hardware hero" data-parallax="0.12">
+  </div>
+  <div class="proj-hero-overlay"></div>
+  <div class="proj-hero-content">
+    <p class="proj-hero-breadcrumb">
+      <a href="../index.html">Inicio</a><span>/</span>
+      <a href="../index.html#projects">Proyectos</a><span>/</span>
+      Social Media Hardware
+    </p>
+    <p class="proj-hero-category">Social Media · Content Design</p>
+    <h1 class="proj-hero-title">Hardware<br>Social Media</h1>
+    <div class="proj-hero-meta">
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">Año</span>
+        <span class="proj-meta-value">2024</span>
+      </div>
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">Disciplina</span>
+        <span class="proj-meta-value">Social Media, Content Design</span>
+      </div>
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">Herramienta</span>
+        <span class="proj-meta-value">Adobe Photoshop</span>
+      </div>
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">Behance</span>
+        <span class="proj-meta-value">
+          <a href="https://www.behance.net/gallery/205136643/Social-Media-Hardware"
+             target="_blank" rel="noopener" style="color:var(--clr-accent)">Ver original ↗</a>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BODY -->
+<main class="proj-body">
+
+  <div class="proj-intro reveal">
+    <h2 class="proj-intro-title">El contenido de redes no es decoración. Es estrategia visual.</h2>
+    <div>
+      <p class="proj-intro-text">
+        El diseño para Social Media requiere dominar dos cosas aparentemente opuestas:
+        captar la atención en menos de 2 segundos y transmitir la personalidad de una
+        marca con coherencia a lo largo de todo el feed.
+      </p>
+      <p class="proj-intro-text" style="margin-top:1rem;">
+        Este proyecto de hardware muestra cómo el diseño gráfico puede hacer que
+        un producto técnico se vea atractivo, deseable y con identidad propia en redes.
+      </p>
+    </div>
+  </div>
+
+  <!-- ESTRATEGIA -->
+  <div class="proj-section-label reveal"><span>01 — Estrategia de contenido</span></div>
+
+  <div class="process-steps reveal">
+    <div class="process-step">
+      <div class="step-number">01</div>
+      <div class="step-title">Definición de tono</div>
+      <p class="step-text">Cada marca tiene voz propia. Definir si es técnica, aspiracional, cercana o premium antes de diseñar.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-number">02</div>
+      <div class="step-title">Grid de feed</div>
+      <p class="step-text">El feed de Instagram es una unidad. El diseño de cada post debe contemplar la vista general del perfil.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-number">03</div>
+      <div class="step-title">Templates y sistema</div>
+      <p class="step-text">Crear plantillas reutilizables que mantengan consistencia sin perder frescura en cada publicación.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-number">04</div>
+      <div class="step-title">Adaptación por formato</div>
+      <p class="step-text">Feed, stories, reels, ads. Cada formato tiene sus reglas y sus momentos de consumo.</p>
+    </div>
+  </div>
+
+  <!-- MOCKUP INSTAGRAM GRID -->
+  <div class="proj-section-label reveal"><span>02 — Feed Mockup</span></div>
+
+  <div class="reveal" style="display:flex; justify-content:center; margin: var(--space-xl) 0;">
+    <!-- Simulated Instagram profile -->
+    <div style="width: min(400px, 100%); background: var(--clr-surface); border-radius: 12px; overflow: hidden; border: 1px solid var(--clr-border);">
+      <!-- Profile header -->
+      <div style="padding: 1.5rem; display:flex; align-items:center; gap:1rem; border-bottom:1px solid var(--clr-border);">
+        <div style="width:52px; height:52px; border-radius:50%; background:linear-gradient(135deg,var(--clr-accent),var(--clr-accent-dim)); display:flex; align-items:center; justify-content:center; font-family:var(--ff-display); font-size:1.4rem; color:var(--clr-bg); flex-shrink:0;">H</div>
+        <div>
+          <p style="font-weight:500; font-size:0.9rem; color:var(--clr-white);">hardware.oficial</p>
+          <p style="font-size:0.75rem; color:var(--clr-text-dim);">Tecnología · Buenos Aires</p>
+        </div>
+      </div>
+      <!-- Stats -->
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; padding:1rem; border-bottom:1px solid var(--clr-border);">
+        <div style="text-align:center;">
+          <p style="font-weight:600; color:var(--clr-white); font-size:1.1rem;">24</p>
+          <p style="font-size:0.7rem; color:var(--clr-text-dim); font-family:var(--ff-mono); letter-spacing:0.1em; text-transform:uppercase;">Posts</p>
+        </div>
+        <div style="text-align:center; border-left:1px solid var(--clr-border); border-right:1px solid var(--clr-border);">
+          <p style="font-weight:600; color:var(--clr-white); font-size:1.1rem;">1.2K</p>
+          <p style="font-size:0.7rem; color:var(--clr-text-dim); font-family:var(--ff-mono); letter-spacing:0.1em; text-transform:uppercase;">Seguidores</p>
+        </div>
+        <div style="text-align:center;">
+          <p style="font-weight:600; color:var(--clr-white); font-size:1.1rem;">320</p>
+          <p style="font-size:0.7rem; color:var(--clr-text-dim); font-family:var(--ff-mono); letter-spacing:0.1em; text-transform:uppercase;">Seguidos</p>
+        </div>
+      </div>
+      <!-- Grid -->
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:2px;">
+        <div style="aspect-ratio:1; overflow:hidden;">
+          <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/de9368205136643.66b53c4867864.jpg"
+               alt="Post 1" style="width:100%; height:100%; object-fit:cover; transition:transform 0.4s ease; display:block;"
+               onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" data-lightbox>
+        </div>
+        <!-- Placeholder posts con color de brand -->
+        <div style="aspect-ratio:1; background:var(--clr-muted); display:flex; align-items:center; justify-content:center; font-family:var(--ff-mono); font-size:0.6rem; color:var(--clr-text-dim); letter-spacing:0.1em; text-transform:uppercase;">Post</div>
+        <div style="aspect-ratio:1; background:#1a1a1a; display:flex; align-items:center; justify-content:center; font-family:var(--ff-display); font-size:1.5rem; color:var(--clr-accent);">H</div>
+        <div style="aspect-ratio:1; background:#0f0f0f; display:flex; align-items:center; justify-content:center; font-family:var(--ff-mono); font-size:0.6rem; color:var(--clr-text-dim);">—</div>
+        <div style="aspect-ratio:1; overflow:hidden;">
+          <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/de9368205136643.66b53c4867864.jpg"
+               alt="Post 5" style="width:100%; height:100%; object-fit:cover; filter:hue-rotate(15deg) saturate(0.8); display:block;">
+        </div>
+        <div style="aspect-ratio:1; background:var(--clr-accent-dim); display:flex; align-items:center; justify-content:center; font-family:var(--ff-mono); font-size:0.6rem; color:var(--clr-bg); letter-spacing:0.1em; text-transform:uppercase;">New</div>
+        <div style="aspect-ratio:1; background:#111; display:flex; align-items:center; justify-content:center; font-family:var(--ff-mono); font-size:0.6rem; color:var(--clr-text-dim);">—</div>
+        <div style="aspect-ratio:1; overflow:hidden;">
+          <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/de9368205136643.66b53c4867864.jpg"
+               alt="Post 8" style="width:100%; height:100%; object-fit:cover; filter:grayscale(0.3) brightness(0.8); display:block;">
+        </div>
+        <div style="aspect-ratio:1; background:var(--clr-muted); display:flex; align-items:center; justify-content:center; font-family:var(--ff-mono); font-size:0.6rem; color:var(--clr-text-dim);">—</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GALERÍA PRINCIPAL -->
+  <div class="proj-section-label reveal"><span>03 — Piezas destacadas</span></div>
+
+  <div class="proj-gallery-full reveal">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/de9368205136643.66b53c4867864.jpg"
+         alt="Social Media Hardware — pieza principal" data-lightbox style="cursor:zoom-in">
+  </div>
+
+  <!-- REFLEXIÓN -->
+  <div class="proj-section-label reveal"><span>04 — Resultado</span></div>
+
+  <div class="reveal" style="max-width:700px; margin-bottom:var(--space-xl);">
+    <p class="proj-intro-text">
+      El diseño para redes sociales me enseñó que la calidad visual no es un lujo:
+      es la primera impresión de una marca. En un feed donde todo compite,
+      el diseño bien pensado es el único que para el pulgar.
+    </p>
+  </div>
+
+  <div class="proj-nav">
+    <a href="yogui.html" class="proj-nav-item prev">
+      <span class="proj-nav-dir">← Anterior</span>
+      <span class="proj-nav-title">YOGUI UX/UI</span>
+    </a>
+    <a href="cebate.html" class="proj-nav-item next">
+      <span class="proj-nav-dir">Volver al inicio →</span>
+      <span class="proj-nav-title">CEBATE</span>
+    </a>
+  </div>
+
+</main>
+
+<footer id="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">A.L.</div>
+        <div class="footer-tagline">Diseñador Multimedia · Buenos Aires</div>
+      </div>
+      <nav class="footer-links">
+        <a href="../index.html#projects" class="footer-link">Proyectos</a>
+        <a href="contacto.html" class="footer-link">Contacto</a>
+        <a href="https://www.behance.net/aguatinlanella" class="footer-link" target="_blank">Behance</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2024 Agustín Lanella.</span>
+      <a href="https://www.behance.net/gallery/205136643/Social-Media-Hardware"
+         class="footer-behance" target="_blank">Ver en Behance ↗</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/loader.js"></script>
+<script src="../js/cursor.js"></script>
+<script src="../js/animations.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

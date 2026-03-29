@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YOGUI — UX/UI App · Agustín Lanella</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/projects.css">
+</head>
+<body>
+
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+<div id="lightbox" role="dialog" aria-modal="true">
+  <button class="lightbox-close" aria-label="Cerrar">✕</button>
+  <img src="" alt="Vista ampliada">
+</div>
+<div id="page-loader">
+  <div class="loader-name">YOGUI</div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-count" id="loader-count">0%</div>
+</div>
+
+<nav id="nav">
+  <a href="../index.html" class="nav-logo">A.L.</a>
+  <ul class="nav-links">
+    <li><a href="../index.html#projects" class="nav-link active">Proyectos</a></li>
+    <li><a href="../index.html#about" class="nav-link">Sobre mí</a></li>
+    <li><a href="servicios.html" class="nav-link">Servicios</a></li>
+    <li><a href="https://www.behance.net/aguatinlanella" class="nav-link" target="_blank">Behance</a></li>
+  </ul>
+  <a href="contacto.html" class="nav-cta">Contacto</a>
+  <button class="nav-hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile-overlay">
+  <a href="../index.html#projects" class="nav-link">Proyectos</a>
+  <a href="../index.html#about" class="nav-link">Sobre mí</a>
+  <a href="servicios.html" class="nav-link">Servicios</a>
+  <a href="contacto.html" class="nav-link">Contacto</a>
+</div>
+
+<!-- HERO -->
+<section class="proj-hero">
+  <div class="proj-hero-bg">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/905820205064645.66b421db36b23.jpg"
+         alt="YOGUI UX/UI hero" data-parallax="0.12">
+  </div>
+  <div class="proj-hero-overlay"></div>
+  <div class="proj-hero-content">
+    <p class="proj-hero-breadcrumb">
+      <a href="../index.html">Inicio</a><span>/</span>
+      <a href="../index.html#projects">Proyectos</a><span>/</span>
+      YOGUI
+    </p>
+    <p class="proj-hero-category">UX/UI · Diseño de Aplicación Móvil</p>
+    <h1 class="proj-hero-title">YOGUI<br>App Móvil</h1>
+    <div class="proj-hero-meta">
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">Año</span>
+        <span class="proj-meta-value">2024</span>
+      </div>
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">Disciplina</span>
+        <span class="proj-meta-value">UX Research, UI Design</span>
+      </div>
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">Herramientas</span>
+        <span class="proj-meta-value">Figma, Illustrator</span>
+      </div>
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">Behance</span>
+        <span class="proj-meta-value">
+          <a href="https://www.behance.net/gallery/205064645/Diseno-uxui-aplicacion-YOGUI"
+             target="_blank" rel="noopener" style="color:var(--clr-accent)">Ver original ↗</a>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BODY -->
+<main class="proj-body">
+
+  <!-- INTRO -->
+  <div class="proj-intro reveal">
+    <h2 class="proj-intro-title">Diseñar una experiencia que acompañe el bienestar real del usuario.</h2>
+    <div>
+      <p class="proj-intro-text">
+        YOGUI es una aplicación móvil orientada al bienestar y la práctica de yoga.
+        El desafío fue diseñar una interfaz que transmitiera calma, claridad y motivación:
+        que la propia app se sintiera como una extensión de la práctica.
+      </p>
+      <p class="proj-intro-text" style="margin-top:1rem;">
+        Desde el research de usuarios hasta los UI Screens finales, el proceso fue
+        completamente centrado en la experiencia humana. Este es el proyecto que mejor
+        muestra mi capacidad como diseñador UX/UI.
+      </p>
+    </div>
+  </div>
+
+  <!-- DESAFÍO -->
+  <div class="proj-section-label reveal"><span>01 — El Problema</span></div>
+
+  <div class="reveal" style="padding: var(--space-lg); background: var(--clr-surface); border-radius: var(--radius-md); border: 1px solid var(--clr-border); margin-bottom: var(--space-xl);">
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap: var(--space-md);">
+      <div>
+        <div style="font-family:var(--ff-mono); font-size:var(--fs-xs); letter-spacing:0.2em; text-transform:uppercase; color:var(--clr-accent); margin-bottom:0.5rem;">Problema</div>
+        <p style="font-size:var(--fs-sm); color:var(--clr-text-dim); line-height:1.7;">Las apps de yoga existentes son complejas, genéricas y no acompañan al usuario en su progreso real.</p>
+      </div>
+      <div>
+        <div style="font-family:var(--ff-mono); font-size:var(--fs-xs); letter-spacing:0.2em; text-transform:uppercase; color:var(--clr-accent); margin-bottom:0.5rem;">Usuario</div>
+        <p style="font-size:var(--fs-sm); color:var(--clr-text-dim); line-height:1.7;">Personas de 20–40 años que buscan introducirse o profundizar en yoga desde casa, con tiempo limitado.</p>
+      </div>
+      <div>
+        <div style="font-family:var(--ff-mono); font-size:var(--fs-xs); letter-spacing:0.2em; text-transform:uppercase; color:var(--clr-accent); margin-bottom:0.5rem;">Objetivo</div>
+        <p style="font-size:var(--fs-sm); color:var(--clr-text-dim); line-height:1.7;">Una app simple, motivadora y personalizada que se adapte al nivel y disponibilidad del usuario.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROCESO UX -->
+  <div class="proj-section-label reveal"><span>02 — Proceso UX</span></div>
+
+  <div class="process-steps reveal">
+    <div class="process-step">
+      <div class="step-number">01</div>
+      <div class="step-title">Research</div>
+      <p class="step-text">Entrevistas con usuarios, análisis de competidores y definición de pain points principales.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-number">02</div>
+      <div class="step-title">Arquitectura de info</div>
+      <p class="step-text">Sitemap, flujos de usuario y jerarquía de contenidos para guiar la navegación intuitiva.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-number">03</div>
+      <div class="step-title">Wireframes</div>
+      <p class="step-text">Bocetos de baja fidelidad para validar la estructura antes de invertir en diseño visual.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-number">04</div>
+      <div class="step-title">UI Design</div>
+      <p class="step-text">Sistema de diseño completo: tipografía, color, componentes y pantallas finales en Figma.</p>
+    </div>
+  </div>
+
+  <!-- PANTALLAS PRINCIPALES -->
+  <div class="proj-section-label reveal"><span>03 — UI Screens</span></div>
+
+  <div class="proj-gallery-full reveal">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/905820205064645.66b421db36b23.jpg"
+         alt="YOGUI pantallas principales" data-lightbox style="cursor:zoom-in">
+  </div>
+
+  <!-- Scroll horizontal de pantallas — UX Flow -->
+  <div class="reveal" style="margin: var(--space-lg) 0;">
+    <p style="font-family:var(--ff-mono); font-size:var(--fs-xs); letter-spacing:0.15em; text-transform:uppercase; color:var(--clr-text-dim); margin-bottom:var(--space-sm);">
+      → Scrolleá para ver el flujo de pantallas
+    </p>
+    <div class="ux-flow">
+      <div class="ux-screen">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/ada1b8205064645.66b421db3607b.jpg"
+             alt="YOGUI onboarding" data-lightbox>
+      </div>
+      <div class="ux-screen">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/f775fb205064645.66b421db3561a.jpg"
+             alt="YOGUI home" data-lightbox>
+      </div>
+      <div class="ux-screen">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/eb6654205064645.66b421db34696.jpg"
+             alt="YOGUI rutinas" data-lightbox>
+      </div>
+      <div class="ux-screen">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/fa3f3a205064645.66b421db38749.jpg"
+             alt="YOGUI sesión" data-lightbox>
+      </div>
+      <div class="ux-screen">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/b4dd2f205064645.66b421db37e97.jpg"
+             alt="YOGUI perfil" data-lightbox>
+      </div>
+      <div class="ux-screen">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/3b53c3205064645.66b421db374a3.jpg"
+             alt="YOGUI progreso" data-lightbox>
+      </div>
+    </div>
+  </div>
+
+  <div class="proj-gallery-2col reveal">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/126134205064645.66b421db3952c.jpg"
+         alt="YOGUI detalle 1" data-lightbox style="cursor:zoom-in">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/fa3f3a205064645.66b421db38749.jpg"
+         alt="YOGUI detalle 2" data-lightbox style="cursor:zoom-in">
+  </div>
+
+  <!-- SISTEMA DE DISEÑO -->
+  <div class="proj-section-label reveal"><span>04 — Sistema Visual</span></div>
+
+  <div class="reveal" style="padding: var(--space-lg); background: var(--clr-surface); border-radius: var(--radius-md); border: 1px solid var(--clr-border); margin-bottom: var(--space-xl);">
+
+    <p style="font-family:var(--ff-mono); font-size:var(--fs-xs); letter-spacing:0.2em; text-transform:uppercase; color:var(--clr-accent); margin-bottom:var(--space-md);">Paleta de color</p>
+    <div class="palette-wrap" style="margin-bottom:var(--space-lg);">
+      <div class="palette-swatch">
+        <div class="swatch-color" style="background:#1b2a2a;"></div>
+        <span class="swatch-label">Deep Forest</span>
+      </div>
+      <div class="palette-swatch">
+        <div class="swatch-color" style="background:#3d6b5c;"></div>
+        <span class="swatch-label">Jade</span>
+      </div>
+      <div class="palette-swatch">
+        <div class="swatch-color" style="background:#8fbfaa;"></div>
+        <span class="swatch-label">Sage</span>
+      </div>
+      <div class="palette-swatch">
+        <div class="swatch-color" style="background:#e8f0eb; border:1px solid #444;"></div>
+        <span class="swatch-label">Mist</span>
+      </div>
+      <div class="palette-swatch">
+        <div class="swatch-color" style="background:#d4956a;"></div>
+        <span class="swatch-label">Terracota</span>
+      </div>
+    </div>
+
+    <p style="font-family:var(--ff-mono); font-size:var(--fs-xs); letter-spacing:0.2em; text-transform:uppercase; color:var(--clr-accent); margin-bottom:var(--space-sm);">Tipografía</p>
+    <div style="display:flex; gap:var(--space-lg); flex-wrap:wrap;">
+      <div>
+        <p style="font-size:2.5rem; font-family:'Cormorant Garamond', serif; font-weight:300; color:var(--clr-white); line-height:1;">Yogui</p>
+        <p style="font-family:var(--ff-mono); font-size:10px; color:var(--clr-text-dim); margin-top:0.5rem;">Display — Cormorant Garamond</p>
+      </div>
+      <div>
+        <p style="font-size:1.2rem; font-family:'DM Sans', sans-serif; font-weight:300; color:var(--clr-text); letter-spacing:0.02em; line-height:1;">Encuentra tu equilibrio</p>
+        <p style="font-family:var(--ff-mono); font-size:10px; color:var(--clr-text-dim); margin-top:0.5rem;">Body — DM Sans Light</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- LINK FIGMA -->
+  <div class="reveal" style="text-align:center; padding:var(--space-xl) 0; border:1px dashed var(--clr-muted); border-radius:var(--radius-md); margin-bottom:var(--space-xl);">
+    <p style="font-family:var(--ff-mono); font-size:var(--fs-xs); letter-spacing:0.2em; text-transform:uppercase; color:var(--clr-text-dim); margin-bottom:var(--space-sm);">Prototipo interactivo</p>
+    <p style="font-family:var(--ff-display); font-size:var(--fs-xl); color:var(--clr-white); margin-bottom:var(--space-md);">Ver el prototipo completo</p>
+    <a href="https://www.behance.net/gallery/205064645/Diseno-uxui-aplicacion-YOGUI"
+       class="btn btn-primary btn-arrow" target="_blank" rel="noopener">
+      Ver en Behance
+    </a>
+  </div>
+
+  <!-- REFLEXIÓN -->
+  <div class="proj-section-label reveal"><span>05 — Aprendizaje</span></div>
+
+  <div class="reveal" style="max-width:700px; margin-bottom:var(--space-xl);">
+    <p class="proj-intro-text">
+      YOGUI es el proyecto donde más me desafié como diseñador UX. Aprendí que el diseño
+      de interfaces no es decorar pantallas: es resolver problemas humanos con claridad
+      y empatía. Cada decisión tiene que justificarse desde el usuario.
+    </p>
+  </div>
+
+  <div class="proj-nav">
+    <a href="doble-exposicion.html" class="proj-nav-item prev">
+      <span class="proj-nav-dir">← Anterior</span>
+      <span class="proj-nav-title">Doble Exposición</span>
+    </a>
+    <a href="social-media.html" class="proj-nav-item next">
+      <span class="proj-nav-dir">Siguiente →</span>
+      <span class="proj-nav-title">Social Media Hardware</span>
+    </a>
+  </div>
+
+</main>
+
+<footer id="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">A.L.</div>
+        <div class="footer-tagline">Diseñador Multimedia · Buenos Aires</div>
+      </div>
+      <nav class="footer-links">
+        <a href="../index.html#projects" class="footer-link">Proyectos</a>
+        <a href="contacto.html" class="footer-link">Contacto</a>
+        <a href="https://www.behance.net/aguatinlanella" class="footer-link" target="_blank">Behance</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2024 Agustín Lanella.</span>
+      <a href="https://www.behance.net/gallery/205064645/Diseno-uxui-aplicacion-YOGUI"
+         class="footer-behance" target="_blank">Ver en Behance ↗</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/loader.js"></script>
+<script src="../js/cursor.js"></script>
+<script src="../js/animations.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

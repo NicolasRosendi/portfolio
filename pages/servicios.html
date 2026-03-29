@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios · Agustín Lanella</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <style>
+    .services-hero {
+      min-height: 55vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding-bottom: var(--space-xl);
+      padding-top: calc(var(--nav-height) + var(--space-xl));
+      position: relative;
+    }
+    .services-hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 70% 50%, rgba(200,169,110,0.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-md);
+      margin: var(--space-xl) 0;
+    }
+    .service-card {
+      padding: var(--space-lg);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-md);
+      transition: border-color var(--transition-base), transform var(--transition-base), background var(--transition-base);
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--clr-accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition-slow);
+    }
+    .service-card:hover {
+      border-color: var(--clr-accent-dim);
+      background: var(--clr-surface);
+      transform: translateY(-6px);
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: var(--space-sm);
+    }
+    .service-title {
+      font-family: var(--ff-display);
+      font-size: var(--fs-xl);
+      font-weight: var(--fw-light);
+      color: var(--clr-white);
+      margin-bottom: var(--space-sm);
+      line-height: 1.1;
+    }
+    .service-desc {
+      font-size: var(--fs-sm);
+      color: var(--clr-text-dim);
+      line-height: 1.8;
+      margin-bottom: var(--space-md);
+    }
+    .service-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .service-list li {
+      font-family: var(--ff-mono);
+      font-size: var(--fs-xs);
+      letter-spacing: 0.1em;
+      color: var(--clr-text-dim);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .service-list li::before {
+      content: '→';
+      color: var(--clr-accent);
+      flex-shrink: 0;
+    }
+    .pricing-note {
+      font-family: var(--ff-mono);
+      font-size: var(--fs-xs);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--clr-accent);
+      margin-top: var(--space-md);
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--clr-border);
+    }
+    .process-timeline {
+      position: relative;
+      padding-left: var(--space-lg);
+      margin: var(--space-xl) 0;
+    }
+    .process-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--clr-accent), transparent);
+    }
+    .timeline-item {
+      margin-bottom: var(--space-lg);
+      position: relative;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: calc(-1 * var(--space-lg) - 4px);
+      top: 8px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--clr-accent);
+      border: 2px solid var(--clr-bg);
+    }
+    .timeline-step {
+      font-family: var(--ff-mono);
+      font-size: var(--fs-xs);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--clr-accent);
+      margin-bottom: 0.25rem;
+    }
+    .timeline-title {
+      font-family: var(--ff-display);
+      font-size: var(--fs-lg);
+      font-weight: var(--fw-light);
+      color: var(--clr-white);
+      margin-bottom: 0.5rem;
+    }
+    .timeline-text {
+      font-size: var(--fs-sm);
+      color: var(--clr-text-dim);
+      max-width: 500px;
+      line-height: 1.7;
+    }
+    @media (max-width: 768px) {
+      .services-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+<div id="page-loader">
+  <div class="loader-name">SERVICIOS</div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-count" id="loader-count">0%</div>
+</div>
+
+<nav id="nav">
+  <a href="../index.html" class="nav-logo">A.L.</a>
+  <ul class="nav-links">
+    <li><a href="../index.html#projects" class="nav-link">Proyectos</a></li>
+    <li><a href="../index.html#about" class="nav-link">Sobre mí</a></li>
+    <li><a href="servicios.html" class="nav-link active">Servicios</a></li>
+    <li><a href="https://www.behance.net/aguatinlanella" class="nav-link" target="_blank">Behance</a></li>
+  </ul>
+  <a href="contacto.html" class="nav-cta">Contacto</a>
+  <button class="nav-hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile-overlay">
+  <a href="../index.html#projects" class="nav-link">Proyectos</a>
+  <a href="../index.html#about" class="nav-link">Sobre mí</a>
+  <a href="servicios.html" class="nav-link">Servicios</a>
+  <a href="contacto.html" class="nav-link">Contacto</a>
+</div>
+
+<!-- HERO -->
+<section class="services-hero">
+  <div class="services-hero-bg"></div>
+  <div class="container">
+    <p class="hero-eyebrow">Lo que ofrezco</p>
+    <h1 class="hero-title" style="font-size:clamp(3rem,7vw,7rem);">
+      <span class="hero-title-line"><span class="hero-title-word">Servicios</span></span>
+      <span class="hero-title-line"><span class="hero-title-word italic" style="color:var(--clr-accent)">profesionales</span></span>
+    </h1>
+    <p style="font-size:var(--fs-md); color:var(--clr-text-dim); max-width:540px; margin-top:var(--space-md); line-height:1.7;">
+      Trabajo con marcas, emprendedores y estudios que buscan elevar su presencia visual.
+      Cada proyecto es un proceso colaborativo con resultados concretos.
+    </p>
+  </div>
+</section>
+
+<main class="container">
+
+  <!-- SERVICIOS -->
+  <section style="padding: var(--space-xl) 0;">
+    <div class="section-label reveal">Qué hago</div>
+
+    <div class="services-grid">
+
+      <div class="service-card reveal">
+        <div class="service-icon">🧉</div>
+        <h2 class="service-title">Branding & Identidad Visual</h2>
+        <p class="service-desc">Diseño la personalidad visual de tu marca: desde el concepto hasta el manual de identidad completo.</p>
+        <ul class="service-list">
+          <li>Diseño de logo e isologo</li>
+          <li>Paleta de colores y tipografía</li>
+          <li>Manual de identidad</li>
+          <li>Aplicaciones y mockups</li>
+          <li>Stationery y papelería</li>
+        </ul>
+        <div class="pricing-note">Desde briefing hasta entrega total</div>
+      </div>
+
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">📷</div>
+        <h2 class="service-title">Fotomontaje & Retoque</h2>
+        <p class="service-desc">Composiciones fotográficas de alta complejidad, realistas o conceptuales, con acabado cinematográfico.</p>
+        <ul class="service-list">
+          <li>Fotomontaje realista</li>
+          <li>Composición artística / surrealista</li>
+          <li>Doble exposición</li>
+          <li>Retoque y edición avanzada</li>
+          <li>Key visual para campañas</li>
+        </ul>
+        <div class="pricing-note">Por imagen o por serie</div>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">📱</div>
+        <h2 class="service-title">UX/UI Design</h2>
+        <p class="service-desc">Diseño de interfaces digitales centradas en el usuario: apps, webs y sistemas de diseño completos.</p>
+        <ul class="service-list">
+          <li>Research y arquitectura de info</li>
+          <li>Wireframes y prototipos</li>
+          <li>UI Design en Figma</li>
+          <li>Design System</li>
+          <li>Handoff a desarrollo</li>
+        </ul>
+        <div class="pricing-note">Sprint de UX o proyecto completo</div>
+      </div>
+
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">📲</div>
+        <h2 class="service-title">Social Media Design</h2>
+        <p class="service-desc">Contenido visual para redes que para el scroll y mantiene coherencia de marca en cada publicación.</p>
+        <ul class="service-list">
+          <li>Templates para feed e stories</li>
+          <li>Pack de contenido mensual</li>
+          <li>Mockups de producto</li>
+          <li>Diseño de campañas</li>
+          <li>Adaptación multi-formato</li>
+        </ul>
+        <div class="pricing-note">Pack mensual o piezas sueltas</div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="hr">
+
+  <!-- PROCESO DE TRABAJO -->
+  <section style="padding: var(--space-xl) 0;">
+    <div class="section-label reveal">Cómo trabajo</div>
+    <h2 class="section-title reveal" style="margin-bottom:var(--space-xl);">El proceso de <em>cada proyecto</em></h2>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--space-xl); align-items:start;">
+      <div class="process-timeline reveal">
+        <div class="timeline-item">
+          <p class="timeline-step">01</p>
+          <h3 class="timeline-title">Briefing & Descubrimiento</h3>
+          <p class="timeline-text">Entendemos juntos el proyecto, los objetivos, el público y lo que necesita transmitir.</p>
+        </div>
+        <div class="timeline-item">
+          <p class="timeline-step">02</p>
+          <h3 class="timeline-title">Investigación & Concepto</h3>
+          <p class="timeline-text">Referencias, moodboard y concepto creativo. Definimos la dirección antes de ejecutar.</p>
+        </div>
+        <div class="timeline-item">
+          <p class="timeline-step">03</p>
+          <h3 class="timeline-title">Diseño & Iteración</h3>
+          <p class="timeline-text">Presento propuestas, recibimos feedback y refinamos hasta que el resultado sea el correcto.</p>
+        </div>
+        <div class="timeline-item">
+          <p class="timeline-step">04</p>
+          <h3 class="timeline-title">Entrega & Soporte</h3>
+          <p class="timeline-text">Archivos finales en todos los formatos necesarios, con guía de uso y soporte post-entrega.</p>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2" style="padding:var(--space-lg); background:var(--clr-surface); border-radius:var(--radius-md); border:1px solid var(--clr-border);">
+        <p style="font-family:var(--ff-display); font-size:var(--fs-xl); font-weight:var(--fw-light); color:var(--clr-white); line-height:1.2; margin-bottom:var(--space-md);">
+          "No entrego archivos. Entrego soluciones."
+        </p>
+        <p style="font-size:var(--fs-sm); color:var(--clr-text-dim); line-height:1.8; margin-bottom:var(--space-md);">
+          Cada proyecto es una conversación continua. Mi objetivo no es cumplir un pedido:
+          es entender profundamente el problema y ofrecer la solución visual que mejor lo resuelve.
+        </p>
+        <p style="font-size:var(--fs-sm); color:var(--clr-text-dim); line-height:1.8; margin-bottom:var(--space-lg);">
+          Trabajo de forma remota con plazos acordados, comunicación transparente y
+          resultados que superan las expectativas iniciales.
+        </p>
+        <a href="contacto.html" class="btn btn-primary btn-arrow">Iniciar proyecto</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hr">
+
+  <!-- CTA FINAL -->
+  <section style="padding:var(--space-xl) 0; text-align:center;" class="reveal">
+    <h2 style="font-family:var(--ff-display); font-size:clamp(2.5rem,5vw,5rem); font-weight:300; color:var(--clr-white); margin-bottom:var(--space-md);">
+      ¿Arrancamos?
+    </h2>
+    <p style="font-size:var(--fs-md); color:var(--clr-text-dim); max-width:400px; margin:0 auto var(--space-lg);">
+      Contame tu proyecto. Sin compromisos, con respuesta rápida.
+    </p>
+    <a href="contacto.html" class="btn btn-primary btn-arrow">Escribime ahora</a>
+  </section>
+
+</main>
+
+<footer id="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">A.L.</div>
+        <div class="footer-tagline">Diseñador Multimedia · Buenos Aires</div>
+      </div>
+      <nav class="footer-links">
+        <a href="../index.html#projects" class="footer-link">Proyectos</a>
+        <a href="servicios.html" class="footer-link">Servicios</a>
+        <a href="contacto.html" class="footer-link">Contacto</a>
+        <a href="https://www.behance.net/aguatinlanella" class="footer-link" target="_blank">Behance</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2024 Agustín Lanella. Todos los derechos reservados.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/loader.js"></script>
+<script src="../js/cursor.js"></script>
+<script src="../js/animations.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

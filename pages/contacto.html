@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto · Agustín Lanella</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <style>
+    .contact-page {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: var(--nav-height);
+    }
+    .contact-left {
+      padding: var(--space-xl) var(--space-xl) var(--space-xl) var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+    .contact-left::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 20%;
+      bottom: 20%;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--clr-border), transparent);
+    }
+    .contact-right {
+      padding: var(--space-xl) var(--space-lg) var(--space-xl) var(--space-xl);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .contact-big-title {
+      font-family: var(--ff-display);
+      font-size: clamp(3.5rem, 6vw, 6.5rem);
+      font-weight: var(--fw-light);
+      line-height: 0.95;
+      color: var(--clr-white);
+      margin-bottom: var(--space-lg);
+    }
+    .contact-big-title em {
+      font-style: italic;
+      color: var(--clr-accent);
+    }
+    .contact-info-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      margin-bottom: var(--space-xl);
+    }
+    .contact-info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .contact-info-label {
+      font-family: var(--ff-mono);
+      font-size: var(--fs-xs);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--clr-text-dim);
+    }
+    .contact-info-value {
+      font-size: var(--fs-md);
+      color: var(--clr-text);
+      transition: color var(--transition-base);
+    }
+    .contact-info-value:hover { color: var(--clr-accent); }
+    .contact-availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--ff-mono);
+      font-size: var(--fs-xs);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #5cba7d;
+      padding: 0.5rem 1rem;
+      border: 1px solid rgba(92, 186, 125, 0.3);
+      border-radius: var(--radius-sm);
+      margin-bottom: var(--space-xl);
+    }
+    .contact-availability::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #5cba7d;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+    /* Form styles */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .form-label {
+      font-family: var(--ff-mono);
+      font-size: var(--fs-xs);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--clr-text-dim);
+      transition: color var(--transition-base);
+    }
+    .form-group:focus-within .form-label { color: var(--clr-accent); }
+    .form-input,
+    .form-textarea {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.25rem;
+      color: var(--clr-text);
+      font-family: var(--ff-body);
+      font-size: var(--fs-base);
+      font-weight: var(--fw-light);
+      transition: border-color var(--transition-base), background var(--transition-base);
+      outline: none;
+      width: 100%;
+      cursor: text;
+    }
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: var(--clr-accent);
+      background: #161616;
+    }
+    .form-input::placeholder,
+    .form-textarea::placeholder { color: var(--clr-muted); }
+    .form-textarea {
+      resize: vertical;
+      min-height: 140px;
+      line-height: 1.7;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+    }
+    .form-select-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .form-select-btn {
+      font-family: var(--ff-mono);
+      font-size: var(--fs-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--clr-text-dim);
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-sm);
+      transition: all var(--transition-base);
+    }
+    .form-select-btn:hover { color: var(--clr-text); border-color: var(--clr-muted); }
+    .form-select-btn.selected {
+      color: var(--clr-bg);
+      background: var(--clr-accent);
+      border-color: var(--clr-accent);
+    }
+    .form-submit {
+      align-self: flex-start;
+      margin-top: var(--space-sm);
+    }
+    .form-success {
+      display: none;
+      padding: var(--space-md);
+      background: rgba(92,186,125,0.08);
+      border: 1px solid rgba(92,186,125,0.3);
+      border-radius: var(--radius-md);
+      font-family: var(--ff-display);
+      font-size: var(--fs-lg);
+      font-weight: var(--fw-light);
+      color: #5cba7d;
+    }
+    @media (max-width: 900px) {
+      .contact-page { grid-template-columns: 1fr; }
+      .contact-left::after { display: none; }
+      .contact-left { padding: var(--space-xl) var(--space-lg) var(--space-md); }
+      .contact-right { padding: 0 var(--space-lg) var(--space-xl); }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+<div id="page-loader">
+  <div class="loader-name">CONTACTO</div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-count" id="loader-count">0%</div>
+</div>
+
+<nav id="nav">
+  <a href="../index.html" class="nav-logo">A.L.</a>
+  <ul class="nav-links">
+    <li><a href="../index.html#projects" class="nav-link">Proyectos</a></li>
+    <li><a href="../index.html#about" class="nav-link">Sobre mí</a></li>
+    <li><a href="servicios.html" class="nav-link">Servicios</a></li>
+    <li><a href="https://www.behance.net/aguatinlanella" class="nav-link" target="_blank">Behance</a></li>
+  </ul>
+  <a href="contacto.html" class="nav-cta active" style="background:var(--clr-white); color:var(--clr-bg);">Contacto</a>
+  <button class="nav-hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile-overlay">
+  <a href="../index.html#projects" class="nav-link">Proyectos</a>
+  <a href="../index.html#about" class="nav-link">Sobre mí</a>
+  <a href="servicios.html" class="nav-link">Servicios</a>
+  <a href="contacto.html" class="nav-link">Contacto</a>
+</div>
+
+<main>
+  <div class="contact-page">
+
+    <!-- LEFT: Info -->
+    <div class="contact-left reveal">
+
+      <div class="contact-availability">
+        Disponible para proyectos
+      </div>
+
+      <h1 class="contact-big-title">
+        Hablemos<br>de tu<br><em>proyecto</em>
+      </h1>
+
+      <div class="contact-info-list">
+        <div class="contact-info-item">
+          <span class="contact-info-label">Email</span>
+          <a href="mailto:agustin.lanella@email.com" class="contact-info-value">
+            agustin.lanella@email.com
+          </a>
+        </div>
+        <div class="contact-info-item">
+          <span class="contact-info-label">Ubicación</span>
+          <span class="contact-info-value">Buenos Aires, Argentina</span>
+        </div>
+        <div class="contact-info-item">
+          <span class="contact-info-label">Behance</span>
+          <a href="https://www.behance.net/aguatinlanella"
+             target="_blank" rel="noopener" class="contact-info-value">
+            behance.net/aguatinlanella ↗
+          </a>
+        </div>
+        <div class="contact-info-item">
+          <span class="contact-info-label">Tiempo de respuesta</span>
+          <span class="contact-info-value">Menos de 24 horas</span>
+        </div>
+      </div>
+
+      <!-- Decorative large text -->
+      <div aria-hidden="true" style="
+        font-family: var(--ff-display);
+        font-size: clamp(5rem, 12vw, 10rem);
+        font-weight: 300;
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(200,169,110,0.08);
+        line-height: 1;
+        letter-spacing: -0.03em;
+        margin-top: auto;
+        user-select: none;
+      ">AL</div>
+
+    </div>
+
+    <!-- RIGHT: Form -->
+    <div class="contact-right reveal reveal-delay-2">
+
+      <div class="section-label" style="margin-bottom:var(--space-md);">Formulario de contacto</div>
+      <h2 style="font-family:var(--ff-display); font-size:var(--fs-xl); font-weight:300; color:var(--clr-white); margin-bottom:var(--space-lg);">
+        Contame todo sobre tu proyecto
+      </h2>
+
+      <form class="contact-form" id="contact-form" novalidate>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="nombre">Tu nombre</label>
+            <input class="form-input" type="text" id="nombre" name="nombre"
+                   placeholder="Juan García" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-input" type="email" id="email" name="email"
+                   placeholder="juan@empresa.com" required autocomplete="email">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Tipo de proyecto</label>
+          <div class="form-select-group" role="group" aria-label="Tipo de proyecto">
+            <button type="button" class="form-select-btn" data-value="branding">Branding</button>
+            <button type="button" class="form-select-btn" data-value="uxui">UX/UI</button>
+            <button type="button" class="form-select-btn" data-value="fotomontaje">Fotomontaje</button>
+            <button type="button" class="form-select-btn" data-value="social">Social Media</button>
+            <button type="button" class="form-select-btn" data-value="otro">Otro</button>
+          </div>
+          <input type="hidden" id="tipo-proyecto" name="tipo">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="empresa">Empresa / Marca (opcional)</label>
+          <input class="form-input" type="text" id="empresa" name="empresa"
+                 placeholder="Nombre de tu marca o empresa">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="mensaje">Contame tu proyecto</label>
+          <textarea class="form-textarea" id="mensaje" name="mensaje"
+                    placeholder="Describí brevemente qué necesitás, cuál es tu objetivo y cualquier detalle relevante..."
+                    required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="presupuesto">Presupuesto aproximado (opcional)</label>
+          <input class="form-input" type="text" id="presupuesto" name="presupuesto"
+                 placeholder="Ej: USD 200–500 · Indefinido · Por hora">
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="btn btn-primary btn-arrow">
+            Enviar mensaje
+          </button>
+        </div>
+
+        <div class="form-success" id="form-success">
+          ✓ Mensaje enviado. Respondo en menos de 24 horas.
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+<footer id="footer" style="border-top:1px solid var(--clr-border);">
+  <div class="container">
+    <div class="footer-bottom" style="padding:var(--space-md) 0;">
+      <span class="footer-copy">© 2024 Agustín Lanella. Todos los derechos reservados.</span>
+      <a href="https://www.behance.net/aguatinlanella" class="footer-behance" target="_blank">behance.net/aguatinlanella ↗</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/loader.js"></script>
+<script src="../js/cursor.js"></script>
+<script src="../js/animations.js"></script>
+<script src="../js/main.js"></script>
+<script>
+  // ── Service type toggle buttons ──
+  const selectBtns = document.querySelectorAll('.form-select-btn');
+  const tipoInput  = document.getElementById('tipo-proyecto');
+
+  selectBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      selectBtns.forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      tipoInput.value = btn.dataset.value;
+    });
+  });
+
+  // ── Form submission (demo) ──
+  const form    = document.getElementById('contact-form');
+  const success = document.getElementById('form-success');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const nombre  = document.getElementById('nombre').value.trim();
+    const email   = document.getElementById('email').value.trim();
+    const mensaje = document.getElementById('mensaje').value.trim();
+
+    if (!nombre || !email || !mensaje) {
+      // Simple inline validation highlight
+      [document.getElementById('nombre'), document.getElementById('email'), document.getElementById('mensaje')].forEach(el => {
+        if (!el.value.trim()) {
+          el.style.borderColor = '#e05a5a';
+          el.addEventListener('input', () => { el.style.borderColor = ''; }, { once: true });
+        }
+      });
+      return;
+    }
+
+    // Simulate send
+    const submitBtn = form.querySelector('[type=submit]');
+    submitBtn.textContent = 'Enviando...';
+    submitBtn.disabled = true;
+
+    setTimeout(() => {
+      form.style.display = 'none';
+      success.style.display = 'block';
+    }, 1200);
+  });
+</script>
+</body>
+</html>

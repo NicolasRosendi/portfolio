@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doble Exposición · Agustín Lanella</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/projects.css">
+  <style>
+    /* Extra dark aesthetic for this page */
+    body { background: #030303; }
+    .doble-fade {
+      opacity: 0;
+      transform: translateY(60px);
+      transition: opacity 1.2s cubic-bezier(0.4,0,0.2,1), transform 1.2s cubic-bezier(0.4,0,0.2,1);
+    }
+    .doble-fade.revealed { opacity: 1; transform: translateY(0); }
+    .doble-gallery img {
+      filter: contrast(1.05) saturate(0.9);
+      transition: filter 0.8s ease, transform 0.9s ease;
+    }
+    .doble-gallery img:hover {
+      filter: contrast(1.1) saturate(1.1) brightness(1.05);
+      transform: scale(1.015);
+    }
+  </style>
+</head>
+<body>
+
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+<div id="lightbox" role="dialog" aria-modal="true">
+  <button class="lightbox-close" aria-label="Cerrar">✕</button>
+  <img src="" alt="Vista ampliada">
+</div>
+<div id="page-loader">
+  <div class="loader-name">DOBLE</div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-count" id="loader-count">0%</div>
+</div>
+
+<nav id="nav">
+  <a href="../index.html" class="nav-logo">A.L.</a>
+  <ul class="nav-links">
+    <li><a href="../index.html#projects" class="nav-link active">Proyectos</a></li>
+    <li><a href="../index.html#about" class="nav-link">Sobre mí</a></li>
+    <li><a href="servicios.html" class="nav-link">Servicios</a></li>
+    <li><a href="https://www.behance.net/aguatinlanella" class="nav-link" target="_blank">Behance</a></li>
+  </ul>
+  <a href="contacto.html" class="nav-cta">Contacto</a>
+  <button class="nav-hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile-overlay">
+  <a href="../index.html#projects" class="nav-link">Proyectos</a>
+  <a href="contacto.html" class="nav-link">Contacto</a>
+</div>
+
+<!-- HERO: full dark cinematic -->
+<section class="proj-hero" style="min-height:100vh; background:#030303;">
+  <div class="proj-hero-bg">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/0cfba7187979079.6594a4a21c6ff.jpg"
+         alt="Doble Exposición hero"
+         style="opacity:0.5; mix-blend-mode:screen; filter:grayscale(0.3);" data-parallax="0.2">
+  </div>
+  <div class="proj-hero-overlay"
+       style="background:linear-gradient(to top, rgba(3,3,3,1) 0%, rgba(3,3,3,0.7) 45%, rgba(3,3,3,0.1) 100%);">
+  </div>
+  <div class="proj-hero-content">
+    <p class="proj-hero-breadcrumb">
+      <a href="../index.html">Inicio</a><span>/</span>
+      <a href="../index.html#projects">Proyectos</a><span>/</span>
+      Doble Exposición
+    </p>
+    <p class="proj-hero-category" style="color:#c8a96e;">Arte Digital · Fotografía Artística</p>
+    <h1 class="proj-hero-title" style="font-size:clamp(3rem,9vw,9rem); line-height:0.9;">
+      Doble<br><em style="font-style:italic; color:rgba(200,169,110,0.8);">Exposición</em>
+    </h1>
+    <div class="proj-hero-meta">
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">Año</span>
+        <span class="proj-meta-value">2024</span>
+      </div>
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">Disciplina</span>
+        <span class="proj-meta-value">Arte Digital, Fotografía</span>
+      </div>
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">Herramienta</span>
+        <span class="proj-meta-value">Adobe Photoshop</span>
+      </div>
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">Behance</span>
+        <span class="proj-meta-value">
+          <a href="https://www.behance.net/gallery/187979079/DOBLE-EXPOSICION"
+             target="_blank" style="color:var(--clr-accent)">Ver original ↗</a>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="proj-body">
+
+  <div class="proj-intro doble-fade">
+    <h2 class="proj-intro-title">Dos imágenes. Una emoción. Un silencio visual.</h2>
+    <div>
+      <p class="proj-intro-text">
+        La técnica de doble exposición nació en la fotografía analógica cuando el
+        obturador se dispara dos veces en el mismo negativo. En lo digital, ese error
+        se convierte en arte deliberado: dos mundos fusionados que se revelan
+        mutuamente en sus silencios y transparencias.
+      </p>
+      <p class="proj-intro-text" style="margin-top:1rem;">
+        Cada pieza es una decisión poética sobre qué convive con qué,
+        qué se muestra y qué se deja entrever.
+      </p>
+    </div>
+  </div>
+
+  <!-- Full-width dark gallery with scroll fade -->
+  <div class="proj-section-label doble-fade"><span>01 — Serie completa</span></div>
+
+  <!-- Cada imagen en su propio bloque para el efecto scroll individual -->
+  <div class="doble-gallery" style="display:flex; flex-direction:column; gap:var(--space-sm);">
+
+    <div class="doble-fade">
+      <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/0cfba7187979079.6594a4a21c6ff.jpg"
+           alt="Doble exposición 1" data-lightbox style="width:100%; border-radius:2px; cursor:zoom-in;">
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--space-sm);">
+      <div class="doble-fade">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2a7ba6187979079.6594a4a21dc40.jpg"
+             alt="Doble exposición 2" data-lightbox style="width:100%; border-radius:2px; cursor:zoom-in;">
+      </div>
+      <div class="doble-fade">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/8024af187979079.6594a4a21b859.jpg"
+             alt="Doble exposición 3" data-lightbox style="width:100%; border-radius:2px; cursor:zoom-in;">
+      </div>
+    </div>
+
+    <div class="doble-fade">
+      <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/e3cba7187979079.6594a4a21a454.jpg"
+           alt="Doble exposición 4" data-lightbox style="width:100%; border-radius:2px; cursor:zoom-in;">
+    </div>
+
+    <div class="doble-fade">
+      <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/4be745187979079.6594a4a21947e.jpg"
+           alt="Doble exposición 5" data-lightbox style="width:100%; border-radius:2px; cursor:zoom-in;">
+    </div>
+
+  </div>
+
+  <!-- Quote artística -->
+  <div class="doble-fade" style="padding: var(--space-xl) 0; text-align:center;">
+    <blockquote style="font-family:var(--ff-display); font-size:clamp(2rem,5vw,4rem); font-weight:300; font-style:italic; color:rgba(200,169,110,0.6); line-height:1.2; max-width:800px; margin:0 auto;">
+      "Dos almas en una misma piel de luz."
+    </blockquote>
+  </div>
+
+  <div class="proj-section-label doble-fade"><span>02 — Técnica</span></div>
+
+  <div class="process-steps doble-fade">
+    <div class="process-step">
+      <div class="step-number">01</div>
+      <div class="step-title">Selección de pares</div>
+      <p class="step-text">Encontrar dos imágenes que tengan resonancia visual y narrativa entre sí. El contraste o la metáfora.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-number">02</div>
+      <div class="step-title">Blend Mode & Máscara</div>
+      <p class="step-text">Screen, Multiply, Overlay. El modo de fusión define la personalidad de la pieza.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-number">03</div>
+      <div class="step-title">Atmósfera tonal</div>
+      <p class="step-text">Duotono, dodge & burn, curvas extremas para crear una paleta que unifique los dos mundos.</p>
+    </div>
+  </div>
+
+  <div class="proj-nav">
+    <a href="fotomontajes-irrealistas.html" class="proj-nav-item prev">
+      <span class="proj-nav-dir">← Anterior</span>
+      <span class="proj-nav-title">Fotomontajes Irrealistas</span>
+    </a>
+    <a href="yogui.html" class="proj-nav-item next">
+      <span class="proj-nav-dir">Siguiente →</span>
+      <span class="proj-nav-title">YOGUI UX/UI</span>
+    </a>
+  </div>
+
+</main>
+
+<footer id="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">A.L.</div>
+        <div class="footer-tagline">Diseñador Multimedia · Buenos Aires</div>
+      </div>
+      <nav class="footer-links">
+        <a href="../index.html#projects" class="footer-link">Proyectos</a>
+        <a href="contacto.html" class="footer-link">Contacto</a>
+        <a href="https://www.behance.net/aguatinlanella" class="footer-link" target="_blank">Behance</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2024 Agustín Lanella.</span>
+      <a href="https://www.behance.net/gallery/187979079/DOBLE-EXPOSICION"
+         class="footer-behance" target="_blank">Ver en Behance ↗</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/loader.js"></script>
+<script src="../js/cursor.js"></script>
+<script src="../js/animations.js"></script>
+<script src="../js/main.js"></script>
+<script>
+  // Extra scroll fade for doble- elements
+  const fades = document.querySelectorAll('.doble-fade');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('revealed'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  fades.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
