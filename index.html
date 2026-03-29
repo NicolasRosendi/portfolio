@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Agustín Lanella — Diseñador Multimedia & Visual Artist. Branding, UX/UI, Fotomontaje, Motion.">
+  <title>Agustín Lanella — Diseñador Multimedia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+<!-- ── Custom Cursor ─────────────────────────────────────────── -->
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+<!-- ── Lightbox ──────────────────────────────────────────────── -->
+<div id="lightbox" role="dialog" aria-modal="true">
+  <button class="lightbox-close" aria-label="Cerrar">✕</button>
+  <img src="" alt="Vista ampliada">
+</div>
+
+<!-- ── Page Loader ───────────────────────────────────────────── -->
+<div id="page-loader" role="progressbar" aria-label="Cargando">
+  <div class="loader-name">AL</div>
+  <div class="loader-bar-wrap">
+    <div class="loader-bar"></div>
+  </div>
+  <div class="loader-count" id="loader-count">0%</div>
+</div>
+
+<!-- ── Navigation ────────────────────────────────────────────── -->
+<nav id="nav" role="navigation" aria-label="Principal">
+  <a href="index.html" class="nav-logo" aria-label="Inicio">A.L.</a>
+
+  <ul class="nav-links" role="list">
+    <li><a href="index.html#projects" class="nav-link active">Proyectos</a></li>
+    <li><a href="index.html#about" class="nav-link">Sobre mí</a></li>
+    <li><a href="pages/servicios.html" class="nav-link">Servicios</a></li>
+    <li><a href="https://www.behance.net/aguatinlanella" class="nav-link" target="_blank" rel="noopener">Behance</a></li>
+  </ul>
+
+  <a href="pages/contacto.html" class="nav-cta">Contacto</a>
+
+  <button class="nav-hamburger" aria-label="Menú" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile overlay nav -->
+<div class="nav-mobile-overlay" role="dialog" aria-label="Menú móvil">
+  <a href="index.html#projects" class="nav-link">Proyectos</a>
+  <a href="index.html#about" class="nav-link">Sobre mí</a>
+  <a href="pages/servicios.html" class="nav-link">Servicios</a>
+  <a href="pages/contacto.html" class="nav-link">Contacto</a>
+  <a href="https://www.behance.net/aguatinlanella" class="nav-link" target="_blank">Behance ↗</a>
+</div>
+
+<!-- ── HERO ──────────────────────────────────────────────────── -->
+<section id="hero" aria-label="Hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-number" aria-hidden="true">07</div>
+
+  <div class="container">
+    <p class="hero-eyebrow">Buenos Aires, Argentina · 2024</p>
+
+    <h1 class="hero-title">
+      <span class="hero-title-line"><span class="hero-title-word">Diseñador</span></span>
+      <span class="hero-title-line"><span class="hero-title-word italic">Multimedia</span></span>
+      <span class="hero-title-line"><span class="hero-title-word">& Visual.</span></span>
+    </h1>
+
+    <div class="hero-meta">
+      <p class="hero-description">
+        Creo identidades, imágenes e interfaces que comunican con precisión y emoción.
+        Del branding al UX/UI, cada proyecto es una historia que contar.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary btn-arrow">Ver proyectos</a>
+        <a href="pages/contacto.html" class="btn btn-outline">Hablemos</a>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-number">07</span>
+        <span class="stat-label">Proyectos</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">04</span>
+        <span class="stat-label">Disciplinas</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">03+</span>
+        <span class="stat-label">Años activo</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">∞</span>
+        <span class="stat-label">Creatividad</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-hint" aria-hidden="true">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ── MARQUEE ────────────────────────────────────────────────── -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <!-- Duplicated for seamless loop -->
+    <span class="marquee-item">Branding</span>
+    <span class="marquee-item">Identidad Visual</span>
+    <span class="marquee-item">UX/UI</span>
+    <span class="marquee-item">Fotomontaje</span>
+    <span class="marquee-item">Doble Exposición</span>
+    <span class="marquee-item">Social Media</span>
+    <span class="marquee-item">Diseño Multimedial</span>
+    <span class="marquee-item">Branding</span>
+    <span class="marquee-item">Identidad Visual</span>
+    <span class="marquee-item">UX/UI</span>
+    <span class="marquee-item">Fotomontaje</span>
+    <span class="marquee-item">Doble Exposición</span>
+    <span class="marquee-item">Social Media</span>
+    <span class="marquee-item">Diseño Multimedial</span>
+  </div>
+</div>
+
+<!-- ── PROJECTS ───────────────────────────────────────────────── -->
+<section id="projects" class="section">
+  <div class="container">
+
+    <div class="projects-header reveal">
+      <div>
+        <div class="section-label">Trabajos seleccionados</div>
+        <h2 class="section-title">Proyectos que <em>importan</em></h2>
+      </div>
+      <div class="filter-tabs" role="tablist" aria-label="Filtrar proyectos">
+        <button class="filter-tab active" data-filter="all" role="tab">Todos</button>
+        <button class="filter-tab" data-filter="branding" role="tab">Branding</button>
+        <button class="filter-tab" data-filter="fotomontaje" role="tab">Fotomontaje</button>
+        <button class="filter-tab" data-filter="uxui" role="tab">UX/UI</button>
+        <button class="filter-tab" data-filter="social" role="tab">Social Media</button>
+        <button class="filter-tab" data-filter="arte" role="tab">Arte</button>
+      </div>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- CEBATE — col 7 -->
+      <article class="project-card col-7 reveal" data-category="branding" role="article">
+        <a href="pages/cebate.html" aria-label="Ver proyecto CEBATE">
+          <div class="card-img-wrap">
+            <img
+              src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/2a0ec3187975719.65948ff179dcd.jpg"
+              alt="CEBATE — Logo y Manual de Identidad"
+              loading="lazy">
+          </div>
+          <div class="card-info">
+            <p class="card-category">Branding · 2024</p>
+            <h3 class="card-title">CEBATE<br>Identidad Visual</h3>
+            <span class="card-arrow">Ver caso</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- FOTOMONTAJES REALISTAS — col 5 -->
+      <article class="project-card col-5 reveal reveal-delay-1" data-category="fotomontaje" role="article">
+        <a href="pages/fotomontajes-realistas.html" aria-label="Ver proyecto Fotomontajes Realistas">
+          <div class="card-img-wrap">
+            <img
+              src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/73f0cb187975453.65948e9cca3e0.jpg"
+              alt="Fotomontajes Realistas"
+              loading="lazy">
+          </div>
+          <div class="card-info">
+            <p class="card-category">Fotomontaje · 2024</p>
+            <h3 class="card-title">Fotomontajes<br>Realistas</h3>
+            <span class="card-arrow">Ver caso</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- FOTOMONTAJES IRREALISTAS — col 4 -->
+      <article class="project-card col-4 reveal reveal-delay-2" data-category="fotomontaje" role="article">
+        <a href="pages/fotomontajes-irrealistas.html" aria-label="Ver proyecto Fotomontajes Irrealistas">
+          <div class="card-img-wrap">
+            <img
+              src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/a40e7d187975355.65948e1ca4653.jpg"
+              alt="Fotomontajes Irrealistas"
+              loading="lazy">
+          </div>
+          <div class="card-info">
+            <p class="card-category">Fotomontaje · 2024</p>
+            <h3 class="card-title">Fotomontajes<br>Irrealistas</h3>
+            <span class="card-arrow">Ver caso</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- YOGUI UX/UI — col 8 -->
+      <article class="project-card col-8 reveal reveal-delay-1" data-category="uxui" role="article">
+        <a href="pages/yogui.html" aria-label="Ver proyecto YOGUI UX/UI">
+          <div class="card-img-wrap">
+            <img
+              src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/905820205064645.66b421db36b23.jpg"
+              alt="YOGUI — Diseño UX/UI Aplicación"
+              loading="lazy">
+          </div>
+          <div class="card-info">
+            <p class="card-category">UX/UI · 2024</p>
+            <h3 class="card-title">YOGUI<br>Aplicación Móvil</h3>
+            <span class="card-arrow">Ver caso</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- DOBLE EXPOSICIÓN — col 6 -->
+      <article class="project-card col-6 reveal reveal-delay-2" data-category="arte" role="article">
+        <a href="pages/doble-exposicion.html" aria-label="Ver proyecto Doble Exposición">
+          <div class="card-img-wrap">
+            <img
+              src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/0cfba7187979079.6594a4a21c6ff.jpg"
+              alt="Doble Exposición"
+              loading="lazy">
+          </div>
+          <div class="card-info">
+            <p class="card-category">Arte Digital · 2024</p>
+            <h3 class="card-title">Doble<br>Exposición</h3>
+            <span class="card-arrow">Ver caso</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- SOCIAL MEDIA — col 6 -->
+      <article class="project-card col-6 reveal reveal-delay-3" data-category="social" role="article">
+        <a href="pages/social-media.html" aria-label="Ver proyecto Social Media Hardware">
+          <div class="card-img-wrap">
+            <img
+              src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/de9368205136643.66b53c4867864.jpg"
+              alt="Social Media Hardware"
+              loading="lazy">
+          </div>
+          <div class="card-info">
+            <p class="card-category">Social Media · 2024</p>
+            <h3 class="card-title">Hardware<br>Social Media</h3>
+            <span class="card-arrow">Ver caso</span>
+          </div>
+        </a>
+      </article>
+
+    </div><!-- /grid -->
+
+    <div style="text-align:center; margin-top: var(--space-xl);" class="reveal">
+      <a href="https://www.behance.net/aguatinlanella" class="btn btn-outline" target="_blank" rel="noopener">
+        Ver portfolio completo en Behance ↗
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── ABOUT ──────────────────────────────────────────────────── -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="about-grid">
+
+      <div class="about-img-wrap reveal">
+        <img
+          src="https://mir-s3-cdn-cf.behance.net/projects/original/288821217817907.Y3JvcCw1NjIwLDQzOTUsMCww.png"
+          alt="Agustín Lanella — Diseñador Multimedia"
+          loading="lazy">
+        <div class="about-img-accent"></div>
+      </div>
+
+      <div class="about-content reveal reveal-delay-2">
+        <div class="section-label">Sobre mí</div>
+        <h2 class="about-title">
+          Agustín<br>
+          <em style="font-style:italic; color:var(--clr-accent)">Lanella</em>
+        </h2>
+        <p class="about-text">
+          Diseñador multimedial con base en Buenos Aires. Trabajo en la intersección entre
+          la identidad visual, la fotografía y la experiencia digital. Mi proceso arranca
+          desde la idea y termina en cada detalle que el usuario percibe.
+        </p>
+        <p class="about-text">
+          Especializado en branding, fotomontaje y UX/UI. Con herramientas como
+          Illustrator, Photoshop y Figma como extensión natural de mi pensamiento creativo.
+        </p>
+
+        <div class="skills-wrap" style="margin-top: var(--space-md);">
+          <span class="tag">Branding</span>
+          <span class="tag">Identidad Visual</span>
+          <span class="tag">Fotomontaje</span>
+          <span class="tag">UX/UI</span>
+          <span class="tag">Social Media</span>
+          <span class="tag">Illustrator</span>
+          <span class="tag">Photoshop</span>
+          <span class="tag">Figma</span>
+        </div>
+
+        <div style="margin-top: var(--space-lg);">
+          <a href="pages/servicios.html" class="btn btn-outline btn-arrow">Mis servicios</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ────────────────────────────────────────────────────── -->
+<section id="cta" class="section">
+  <div class="cta-bg"></div>
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label" style="justify-content:center;">Trabajemos juntos</div>
+      <h2 class="cta-title">¿Tenés un <em>proyecto</em><br>en mente?</h2>
+      <p class="cta-subtitle">
+        Estoy disponible para proyectos de branding, diseño digital y más.
+        Contame tu idea.
+      </p>
+      <div class="cta-actions">
+        <a href="pages/contacto.html" class="btn btn-primary btn-arrow">Iniciar proyecto</a>
+        <a href="https://www.behance.net/aguatinlanella" class="btn btn-outline" target="_blank" rel="noopener">Ver Behance ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────── -->
+<footer id="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">A.L.</div>
+        <div class="footer-tagline">Diseñador Multimedia · Buenos Aires</div>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="index.html#projects" class="footer-link">Proyectos</a>
+        <a href="pages/servicios.html" class="footer-link">Servicios</a>
+        <a href="pages/contacto.html" class="footer-link">Contacto</a>
+        <a href="https://www.behance.net/aguatinlanella" class="footer-link" target="_blank">Behance</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2024 Agustín Lanella. Todos los derechos reservados.</span>
+      <a href="https://www.behance.net/aguatinlanella" class="footer-behance" target="_blank" rel="noopener">
+        behance.net/aguatinlanella ↗
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/loader.js"></script>
+<script src="js/cursor.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
